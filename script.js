@@ -8,10 +8,6 @@ function stringCutter(str) {
   return str.slice(0, 30) + "...";
 }
 
-console.log(stringCutter(firstSentence));
-console.log(stringCutter(secondSentence));
-console.log(stringCutter(thirdSentence));
-
 function registerInvertion(str) {
   return str
     .split("")
@@ -21,6 +17,25 @@ function registerInvertion(str) {
     .join("");
 }
 
-console.log(registerInvertion("WTF"));
-console.log(registerInvertion("Be my Valentine"));
-console.log(registerInvertion("C&C Red Alert 3"));
+function stringParsig(str) {
+  let obj = {};
+
+  obj.allSymbols = str.length;
+
+  obj.symbolsWithoutSpaces = str
+    .split("")
+    .filter((item) => item.trim() !== "").length;
+
+  obj.quantityOfWords = str.split(" ").length;
+
+  obj.sentenceType =
+    str[str.length - 1] === "!"
+      ? "exclamation"
+      : str[str.length - 1] === "?"
+      ? "question"
+      : str[str.length - 1] === "."
+      ? "statement"
+      : null;
+
+  return obj;
+}
