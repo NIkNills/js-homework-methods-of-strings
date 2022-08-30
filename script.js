@@ -39,3 +39,14 @@ function stringParsig(str) {
 
   return obj;
 }
+
+function moderation(str, bannedWord) {
+  return str
+    .split(" ")
+    .map((item) =>
+      item.toLowerCase() !== bannedWord.toLowerCase()
+        ? item
+        : "*".repeat(bannedWord.length)
+    )
+    .join(" ");
+}
